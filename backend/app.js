@@ -48,6 +48,7 @@ app.get('/pages/:name.html', (req, res, next) => {
     }
 
     return res.sendFile(path.join(__dirname, '../frontend/pages/' + req.params.name + '.html'));
+
 });
 
 // 🚀 Démarrage du serveur
