@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Quicksand:wght@500&display=swap');
+
+body {
+  background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  padding: 30px;
+  color: #4a148c;
+}
+h1 {
+  color: #ba68c8;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+button {
+  margin: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: 'Fira Code', monospace;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #ce93d8;
+  color: white;
+  box-shadow: 0 4px 8px rgba(186, 104, 200, 0.3);
+  transition: background 0.2s, transform 0.2s;
+}
+button:hover {
+  background: #ab47bc;
+  transform: scale(1.05);
+}
+#question-box {
+  margin-top: 30px;
+  display: none;
+  background: white;
+  color: #6a1b9a;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+#cat-title {
+  font-size: 1.4rem;
+  color: #8e24aa;
+  margin-bottom: 15px;
+}
+#message {
+  margin-top: 20px;
+  font-weight: bold;
+}
+input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 12px;
+  width: 60%;
+  border: 2px solid #ce93d8;
+  border-radius: 6px;
+  outline: none;
+}
+input[type="text"]:focus {
+  border-color: #ba68c8;
+  box-shadow: 0 0 6px rgba(186, 104, 200, 0.4);
+}
+hr {
+  margin: 40px auto;
+  width: 60%;
+  border: none;
+  border-top: 2px dashed #ab47bc;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Connexion</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-pane">
+      <!-- Partie gauche -->
+    </div>
+    <div class="right-pane">
+  <div class="login-content">
+    <h1>Bye Bye 👋</h1>
+    <div id="errorMsg" class="error-message" style="display: none;">
+      Mauvais mot de passe 😢
+    </div>
+    <div id="step1">
+      <p class="subtitle">Qui es-tu ?</p>
+      <div class="names">
+        <button onclick="selectName('Laurent')">Laurent</button>
+        <button onclick="selectName('Alain')">Alain</button>
+        <button onclick="selectName('Marc')">Marc</button>
+        <button onclick="selectName('Gauthier')">Gauthier</button>
+        <button onclick="selectName('Vasjana')">Vasjana</button>
+        <button onclick="selectName('Hugues')">Hugues</button>
+      </div>
+    </div>
+
+    <div id="step2" style="display: none;">
+      <p id="welcomeMessage"></p>
+      <form method="POST" action="/login">
+        <input type="hidden" name="username" id="usernameInput" />
+        <div class="password-wrapper">
+          <input
+            name="password"
+            type="password"
+            placeholder=""
+            required
+            class="underline-input"
+          />
+        </div>
+        <button type="submit" class="submit-button">Let's go ?</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <script>
+  function selectName(name) {
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.display = "block";
+    document.getElementById("welcomeMessage").textContent =
+      `Coucou ${name}, mets le mdp qu'Anaïs t'a donné :)`;
+    document.getElementById("usernameInput").value = name.toLowerCase();
+  }
+
+  // 🔍 Si l'URL contient ?error=1, affiche le message
+  window.onload = () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("error") === "1") {
+      document.getElementById("errorMsg").style.display = "block";
+    }
+  };
+</script>
+
+</body>
+</html>

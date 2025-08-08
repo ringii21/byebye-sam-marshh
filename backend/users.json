@@ -1,0 +1,8 @@
+[
+  { "username": "laurent", "password": "laurent", "page": "laurent" },
+  { "username": "alain", "password": "alain", "page": "alain" },
+  { "username": "marc", "password": "marc", "page": "marc-scroll" },
+  { "username": "gauthier", "password": "gauthier", "page": "gauthier" },
+  { "username": "vasjana", "password": "vasjana", "page": "vasjana" },
+  { "username": "hugues", "password": "hugues", "page": "hugues" }
+]

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gauthier Invaders 🚀</title>
+  <link rel="stylesheet" href="../assets/css/goathier.css" />
+<body>
+  <h1>👾 Gauthier Invaders</h1>
+  <canvas id="game" width="600" height="400"></canvas>
+  <div id="message"></div>
+  <button id="restartBtn" style="display:none; margin-top: 20px; padding: 10px 20px; font-size: 1rem;">
+  🔁 Recommencer
+  </button>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const message = document.getElementById("message");
+    const enemyBullets = [];
+    let enemyShootTimer = 0;
+
+
+    const ship = {
+      x: canvas.width / 2 - 20,
+      y: canvas.height - 40,
+      width: 40,
+      height: 20,
+      speed: 5,
+      color: "#00e5ff"
+    };
+
+    const keys = {};
+    const bullets = [];
+    const enemies = [];
+    let gameOver = false;
+    let win = false;
+
+    // Générer les ennemis
+    const rows = 3;
+    const cols = 8;
+    const spacing = 60;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        enemies.push({
+          x: 40 + c * spacing,
+          y: 40 + r * 40,
+          width: 30,
+          height: 20,
+          alive: true,
+          color: "#ff3d00"
+        });
+      }
+    }
+
+    document.addEventListener("keydown", e => keys[e.key] = true);
+    document.addEventListener("keyup", e => keys[e.key] = false);
+
+    document.addEventListener("keydown", e => {
+      if (e.key === " ") {
+        bullets.push({
+          x: ship.x + ship.width / 2 - 2,
+          y: ship.y,
+          width: 4,
+          height: 10,
+          speed: 7,
+          color: "#76ff03"
+        });
+      }
+    });
+
+    function update() {
+      if (gameOver || win) return;
+
+      // Déplacement vaisseau
+      if (keys["ArrowLeft"] && ship.x > 0) ship.x -= ship.speed;
+      if (keys["ArrowRight"] && ship.x + ship.width < canvas.width) ship.x += ship.speed;
+
+      // Mouvements des balles
+      for (const bullet of bullets) {
+        bullet.y -= bullet.speed;
+      }
+
+      // Supprimer les balles hors écran
+      for (let i = bullets.length - 1; i >= 0; i--) {
+        if (bullets[i].y + bullets[i].height < 0) {
+          bullets.splice(i, 1);
+        }
+      }
+
+      // Collision balle ↔ ennemi
+      for (const bullet of bullets) {
+        for (const enemy of enemies) {
+          if (
+            enemy.alive &&
+            bullet.x < enemy.x + enemy.width &&
+            bullet.x + bullet.width > enemy.x &&
+            bullet.y < enemy.y + enemy.height &&
+            bullet.y + bullet.height > enemy.y
+          ) {
+            enemy.alive = false;
+            bullet.y = -100; // retirer la balle
+          }
+        }
+      }
+
+      // Descente ennemis
+      for (const enemy of enemies) {
+        if (enemy.alive) {
+          enemy.y += 0.2;
+          if (enemy.y + enemy.height >= canvas.height - 40) {
+            gameOver = true;
+            endGame(false);
+          }
+        }
+      }
+      // Tir des ennemis
+    enemyShootTimer++;
+    if (enemyShootTimer > 60) { // toutes les ~1s
+      const shooters = enemies.filter(e => e.alive);
+    if (shooters.length > 0) {
+      const shooter = shooters[Math.floor(Math.random() * shooters.length)];
+    enemyBullets.push({
+      x: shooter.x + shooter.width / 2 - 2,
+      y: shooter.y + shooter.height,
+      width: 4,
+      height: 10,
+      speed: 3,
+      color: "#ffcc00"
+    });
+  }
+  enemyShootTimer = 0;
+}
+for (let i = enemyBullets.length - 1; i >= 0; i--) {
+  const bullet = enemyBullets[i];
+  bullet.y += bullet.speed;
+
+  // Collision avec le vaisseau
+  if (
+    bullet.x < ship.x + ship.width &&
+    bullet.x + bullet.width > ship.x &&
+    bullet.y < ship.y + ship.height &&
+    bullet.y + bullet.height > ship.y
+  ) {
+    gameOver = true;
+    endGame(false);
+  }
+
+  // Supprimer balle si hors écran
+  if (bullet.y > canvas.height) {
+    enemyBullets.splice(i, 1);
+  }
+}
+
+
+
+      // Victoire ?
+      if (enemies.every(e => !e.alive)) {
+        win = true;
+        endGame(true);
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Vaisseau
+      ctx.fillStyle = ship.color;
+      ctx.fillRect(ship.x, ship.y, ship.width, ship.height);
+
+      // Balles
+      for (const bullet of bullets) {
+        ctx.fillStyle = bullet.color;
+        ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+      }
+
+      // Ennemis
+      for (const enemy of enemies) {
+        if (enemy.alive) {
+          ctx.fillStyle = enemy.color;
+          ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+        }
+      }
+      // Balles ennemies
+      for (const bullet of enemyBullets) {
+          ctx.fillStyle = bullet.color;
+          ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+      }
+
+    }
+
+    function loop() {
+      update();
+      draw();
+      if (!gameOver && !win) {
+        requestAnimationFrame(loop);
+      }
+    }
+
+    const restartBtn = document.getElementById("restartBtn");
+
+function endGame(victory) {
+  restartBtn.style.display = "inline-block"; // Affiche le bouton
+
+  if (victory) {
+    message.innerHTML = `
+      <hr>
+      🏆 Mission accomplie, Gauthier ! Tu as éliminé tous les envahisseurs 👽<br><br>
+      Merci pour ta bonne humeur et ta bienveillance sur tous les fronts !<br>
+      Je te souhaite de continuer à briller, peu importe la galaxie !<br><br>
+      🫶 Anaïs
+    `;
+  } else {
+    message.innerHTML = `
+      <hr>
+      💥 Gauthier, les aliens ont gagné cette fois...<br><br>
+      Mais je sais que tu vas relancer la partie et les dégommer tous 😄<br><br>
+      🫶 Anaïs
+    `;Marwane
+  }
+}
+
+restartBtn.addEventListener("click", () => {
+  location.reload(); // Recharge la page pour relancer la partie
+});
+
+    loop();
+  </script>
+</body>
+</html>

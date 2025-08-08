@@ -1,0 +1,31 @@
+<!-- sudoku.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sudoku d'Alain 🧠</title>
+  <link rel="stylesheet" href="/assets/css/sudoku.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sudoku d'Alain 🧩</h1>
+
+    <div id="difficulty" class="card">
+      <label for="level">Choisis ta difficulté :</label>
+      <select id="level">
+        <option value="20">Facile</option>
+        <option value="30">Moyen</option>
+        <option value="40">Difficile</option>
+      </select>
+      <button id="newGame">Nouvelle Grille</button>
+    </div>
+
+    <div id="sudoku-board" class="board"></div>
+
+    <button id="check" class="btn-primary">Vérifier</button>
+    <div id="message" class="feedback"></div>
+  </div>
+
+  <script src="/assets/js/sudoku.js"></script>
+</body>
+</html>
