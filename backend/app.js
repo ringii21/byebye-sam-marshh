@@ -5,7 +5,7 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const users = JSON.parse(fs.readFileSync('./users.json'));
+const users = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json')));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
