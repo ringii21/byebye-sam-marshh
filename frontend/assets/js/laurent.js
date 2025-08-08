@@ -54,10 +54,15 @@ function showResult() {
   if (s1 === s2 && s2 === s3) {
     resultDiv.innerHTML = "🎉 JACKPOT ! Bien joué Laurent !";
     messageDiv.innerHTML = `
-      <hr>
-      Merci pour ta bonne humeur légendaire, ta répartie et ton rire qui résonnait dans l'open space 😄<br><br>
-      Tu vas me manquer Laurent. Reviens vite jouer ici quand tu veux !<br><br>
-      🫶 Anaïs
+      <p>
+      Laurent,<br/><br/>
+      Tu as toujours été discret, presque en retrait… mais dès que j'avais un souci, tu étais là. Réactif, efficace, rassurant. Je n'avais même pas le temps de paniquer que tu avais déjà trouvé une solution. Pour moi, tu es devenu "Docteur Diep", toujours prêt à intervenir en urgence avec calme et maîtrise.<br/><br/>
+      Tu m'as aussi beaucoup impressionnée à travers les petites anecdotes que tu partageais parfois. Sous ton air posé, il y avait presque un gangster qui sommeille: un vrai ! 😄<br/><br/>
+      Plus sérieusement, j’ai énormément apprécié nos échanges, ta présence rassurante et ta façon de toujours prendre le temps, même dans le rush. Je garde de très bons souvenirs de toi et de ces moments partagés. J’espère de tout cœur que tu continueras à prendre soin de toi, de ta santé, et à rester ce Laurent plein de ressources que tout le monde gagne à connaître.<br/><br/>
+      Merci pour tout, Docteur Diep 🙏<br/><br/>
+      Anaïs
+      </p>
+
     `;
   } else {
     resultDiv.innerHTML = "Pas cette fois 😅 Réessaie !";

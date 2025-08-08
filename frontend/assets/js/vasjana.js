@@ -17,7 +17,7 @@ const questions = {
       "probabilités": [
         { q: "Proba de tirer un roi dans un jeu de 52 cartes ?", a: "1/13" },
         { q: "Lancer un dé. Proba de faire un nombre pair ?", a: "0.5" },
-        { q: "Si tu lances deux dés, quelle est la proba d’obtenir 7 ?", a: "6/36" }
+        { q: "Si tu lances deux dés, quelle est la proba d'obtenir 7 ?", a: "6/36" }
       ],
       "géométrie": [
         { q: "Combien de degrés a un triangle ?", a: "180" },
@@ -58,11 +58,16 @@ const questions = {
           document.getElementById("menu").style.display = "none";
           document.body.innerHTML += `
             <hr>
-            <h2>🌟 Bravo Vasjana ! 🌟</h2>
-            <p>Tu as relevé 5 défis mathématiques avec brio !</p>
-            <p>Merci pour ton intelligence, ta curiosité et ton sourire. Ce fut un vrai plaisir de bosser avec toi 🫶</p>
-            <p>À très vite,</p>
-            <strong>Anaïs</strong>
+            <h2>🌟 Eyyyy c'était trop facile non? 🌟</h2>
+            <p>Tu as relevé 5 défis mathématiques avec brio, periodt !</p>
+            Vasjana,<br/><br/>
+            Je voulais simplement te dire que j'ai été très heureuse d'avoir partagé ces moments avec toi au sein de l'entreprise.<br/><br/>
+            Je garde de très bons souvenirs de nos échanges, de nos rires et des petites complicités qui rendaient le quotidien plus agréable. Tu fais partie des personnes qui marquent par leur gentillesse et leur authenticité, et je t'en remercie sincèrement.<br/><br/>
+            Je te souhaite plein de belles choses pour la suite, autant sur le plan professionnel que personnel<br/><br/>
+            
+            Avec toute mon amitié,<br/><br/>
+
+            Anaïs 
           `;
         }
       } else {

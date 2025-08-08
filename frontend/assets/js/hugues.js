@@ -117,9 +117,21 @@ function showFinalMessage() {
   msg.innerHTML = `
     <h2>🏁 Fin du Match !</h2>
     <p>Score final : <strong>${score}/7</strong></p>
-    <p>Merci Hugues pour ton flair de stratège, ta passion du foot et ton humour légendaire !</p>
-    <p>Continue à faire vibrer les foules, même loin des terrains !</p>
-    <p>⚽❤️ Anaïs</p>
+    <p>
+Score final : <strong>${score}/7</strong><br/><br/>
+
+Hugues,<br/><br/>
+
+Merci… Merci pour ces un an et demi à tes côtés. Merci d'avoir été ce chef qui ne se contente pas de diriger, mais qui veille, qui soutient, qui protège. 
+Tu m'as offert ta patience, ta bienveillance, ton écoute et surtout ton humour, toujours là, fidèle au poste, même dans les jours les plus gris.<br/><br/>
+Je sais ce que j'ai traversé ici, et je sais aussi que j'ai tenu bon grâce à toi. Grâce à ta présence, à ta façon de relativiser, à cette capacité rare que tu as de faire sourire même quand tout semble compliqué. Tu es resté humain, profondément, et c'est devenu une boussole pour moi.<br/><br/>
+Je continuerai, où que j'aille, à hurler “INNER JOIN” comme un cri de ralliement à ton image; un mélange de rigueur et de folie douce.<br/><br/>
+Mais au-delà de tout ça, j'espère de tout cœur que tu penseras enfin à toi. Que tu lèveras les pieds, que tu te permettras de souffler, parce que tu portes beaucoup… trop parfois. Moi y compris, on s'inquiète.
+Ta santé compte. Elle doit passer avant tout!!<br/><br/>
+Sur ce, j'ai un dernier petit geste pour toi. Un petit cadeau, simple, mais du fond du cœur. Il t'attend dans mon ancien casier — code <strong>0624</strong>.<br/><br/>
+Avec tous mes remerciements du fond du cœur.<br/><br/>
+Anaïs ⚽
+</p>
   `;
 }
 loadQuestion();

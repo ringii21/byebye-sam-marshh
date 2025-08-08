@@ -129,10 +129,16 @@ playerSprite.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAAgCAYAAA
   ) {
     won = true;
     messageDiv.innerHTML = `
-      🏁 Tu l’as fait Marc ! Tu as traversé le jeu comme un vrai pro 🎯<br><br>
-      J'espère que cette aventure t’a fait sourire autant que moi.<br>
-      Bon vent à toi, champion !<br><br>
-      🫶 Anaïs
+      🏁 Tu as traversé le jeu comme un vrai pro 🎯<br><br>
+      <p>
+      Coucou Marc,<br/><br/>
+      C'est peut-être avec toi que j'ai eu le moins d'occasions d'échanger longuement… mais pourtant, ta bienveillance et ta sympathie transparaissaient à chaque instant. Tu dégages un calme et une force tranquille, et je l'ai toujours ressenti.<br/><br/>
+      Le OG, comme on dit: une légende!! Merci pour tes partages de connaissances, toujours transmis avec gentillesse, patience et humilité. Tu as un charisme fou, et je te le dis sincèrement : tu fais partie de ces personnes qu'on admire sans trop oser leur dire. Une vraie source d'inspiration pour moi, presque un idole !<br/><br/>
+      J'espère que tu as apprécié le petit jeu de plateforme que je t'ai concocté 😄 C'était une façon à moi de te dire merci pour ces un an et demi partagés dans la même aventure.<br/><br/>
+      Merci pour tout, Marc !<br/><br/>
+      Anaïs 🎮
+      </p>
+
     `;
   }
 }
