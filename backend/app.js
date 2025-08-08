@@ -2,11 +2,14 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const session = require('express-session');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// 🔓 Charge les utilisateurs
 const users = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json')));
 
+// 🔧 Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -16,15 +19,16 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// ✅ Sert les fichiers statiques : CSS, JS, images
-app.use('/assets', express.static(path.join(__dirname, 'frontend/assets')));
+// 🗂 Sert les fichiers statiques depuis frontend (CSS, JS, images…)
+app.use('/assets', express.static(path.join(__dirname, '../frontend/assets')));
+app.use('/pages', express.static(path.join(__dirname, '../frontend/pages')));
 
-app.use(express.static(path.join(__dirname, '../frontend')));
-
+// 📄 Sert index.html au GET /
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/index.html'));
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
+// 🔐 POST /login : vérifie identifiants
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     const user = users.find(u => u.username === username && u.password === password);
@@ -34,19 +38,19 @@ app.post('/login', (req, res) => {
     }
 
     req.session.user = user;
-    return res.redirect('/pages/' + user.page);
+    return res.redirect('/pages/' + user.page + '.html');
 });
 
-
-app.get('/pages/:name', (req, res) => {
-    if (!req.session.user || req.params.name !== req.session.user.page) {
+// 🔐 Protection des pages privées
+app.get('/pages/:name.html', (req, res, next) => {
+    if (!req.session.user || req.session.user.page !== req.params.name) {
         return res.status(403).send('Accès refusé');
     }
-    res.sendFile(path.join(__dirname, 'frontend/pages/' + req.params.name + '.html'));
 
+    return res.sendFile(path.join(__dirname, '../frontend/pages/' + req.params.name + '.html'));
 });
 
+// 🚀 Démarrage du serveur
 app.listen(PORT, () => {
-    console.log('Serveur en écoute sur http://localhost:' + PORT);
-
+    console.log(`Serveur en écoute sur http://localhost:${PORT}`);
 });
