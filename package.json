@@ -1,11 +1,11 @@
 {
-  "name": "byebye-sam-marsh",
+  "name": "site-jeux",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "start": "node backend/app.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-session": "^1.17.3"
   }
 }
