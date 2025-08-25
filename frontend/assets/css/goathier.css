@@ -12,6 +12,8 @@ canvas {
   border: 2px solid #00e5ff;
 }
 #message {
+  margin-left: 15%;
+  margin-right: 15%;
   margin-top: 20px;
   font-size: 1.2rem;
 }

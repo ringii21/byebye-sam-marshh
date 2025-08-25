@@ -62,11 +62,9 @@ const questions = {
             <p>Tu as relevé 5 défis mathématiques avec brio, periodt !</p>
             Vasjana,<br/><br/>
             Je voulais simplement te dire que j'ai été très heureuse d'avoir partagé ces moments avec toi au sein de l'entreprise.<br/><br/>
-            Je garde de très bons souvenirs de nos échanges, de nos rires et des petites complicités qui rendaient le quotidien plus agréable. Tu fais partie des personnes qui marquent par leur gentillesse et leur authenticité, et je t'en remercie sincèrement.<br/><br/>
+            Je garde de très bons souvenirs de nos échanges, de nos rires et des petites complicités qui rendaient le quotidien plus agréable. <br/><br/>
             Je te souhaite plein de belles choses pour la suite, autant sur le plan professionnel que personnel<br/><br/>
-            
-            Avec toute mon amitié,<br/><br/>
-
+            <br/><br/>
             Anaïs 
           `;
         }
