@@ -21,7 +21,7 @@ const questions = {
       ],
       "géométrie": [
         { q: "Combien de degrés a un triangle ?", a: "180" },
-        { q: "Formule de l’aire d’un cercle ?", a: "pi*r^2" },
+        { q: "Formule de l'aire d'un cercle ?", a: "pi*r^2" },
         { q: "Combien de faces a un cube ?", a: "6" }
       ]
     };

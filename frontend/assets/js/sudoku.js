@@ -118,7 +118,7 @@ function checkBoard() {
       🎉 Bravo Alain ! Tu as résolu le Sudoku comme un roi de la logique !<br><br>
       <p>
         Alain,<br/><br/>
-        Tu as été un véritable pilier pour moi au sein de cette entreprise. Je ne pourrai jamais assez te remercier pour le temps et l'énergie que tu as consacrés à m'expliquer, me montrer et m'apprendre ce métier. C'est un vrai privilège d'apprendre auprès d'une personne passionnée — ça change tout !<br/><br/>
+        Tu as été un véritable pilier pour moi au sein de cette entreprise. Je ne pourrai jamais assez te remercier pour le temps et l'énergie que tu as consacrés à m'expliquer, me montrer et m'apprendre ce métier. C'est un vrai privilège d'apprendre auprès d'une personne passionnée !<br/><br/>
         Je suis aussi très reconnaissante pour cette belle amitié qui s'est construite au fil du temps. J'espère sincèrement qu'on aura l'occasion de se revoir, même après mon départ, autour d'un bon déjeuner avec des personnes comme Théo !<br/><br/>
         Je te souhaite de réaliser tous ces voyages dont tu as rêvé… et que tu viennes me les raconter sur Discord, bien sûr 😄<br/><br/>
         Encore un immense merci pour tout, Alain.<br/><br/>
