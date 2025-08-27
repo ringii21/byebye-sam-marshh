@@ -7,6 +7,6 @@
   { "username": "hugues", "password": "JeVaisFaireUnGrosDodo", "page": "hugues" },
   { "username": "infocentre", "password": "QLICK",  "page": "infocentre" },
   { "username": "prod", "password": "Jira", "page": "production" },
-  { "username": "eric", "password": "mdp", "page": "dsi" },
-  { "username": "moa", "password": "mdp", "page": "moa" }
+  { "username": "eric", "password": "motdepasse", "page": "dsi" },
+  { "username": "moa", "password": "BOKOUDO", "page": "moa" }
 ]
