@@ -328,7 +328,7 @@ function update() {
       player.dy = player.jump * 0.6; // rebond
     } else {
       lost = true;
-      messageDiv.innerHTML = `💥 Aïe ! — Appuie sur <b>R</b> ou clique “Rejouer”.`;
+      messageDiv.innerHTML = `💥 Aïe ! — Appuie sur <b>R</b> ou clique "Recommencer".`;
       break;
     }
   }
