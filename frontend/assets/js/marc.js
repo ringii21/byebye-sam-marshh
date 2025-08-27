@@ -196,7 +196,7 @@ function restartGame() {
     <button id="intro-start" style="
       margin-top:8px; padding:8px 12px; border:none; border-radius:10px;
       cursor:pointer; background:#2ecc71; color:#111; font-weight:600;">
-      Commencer (Entrée / Espace)
+      Commencer (Entrée)
     </button>
   `;
 
