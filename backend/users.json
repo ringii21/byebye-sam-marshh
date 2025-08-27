@@ -4,5 +4,9 @@
   { "username": "marc", "password": "MarcTheOG", "page": "marc-scroll" },
   { "username": "gauthier", "password": "itsGOAThier", "page": "gauthier" },
   { "username": "vasjana", "password": "Mirupafshim", "page": "vasjana" },
-  { "username": "hugues", "password": "JeVaisFaireUnGrosDodo", "page": "hugues" }
+  { "username": "hugues", "password": "JeVaisFaireUnGrosDodo", "page": "hugues" },
+  { "username": "infocentre", "password": "QLICK",  "page": "infocentre" },
+  { "username": "prod", "password": "Jira", "page": "production" },
+  { "username": "eric", "password": "mdp", "page": "dsi" },
+  { "username": "moa", "password": "mdp", "page": "moa" }
 ]

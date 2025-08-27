@@ -1,0 +1,127 @@
+
+    :root{
+      --bg1:#2a1040;          /* fond sombre violet */
+      --bg2:#5a1d80;
+      --accent:#9c4dcc;       /* violet principal */
+      --accent-2:#c084fc;     /* violet clair */
+      --ink:#2a163a;          /* texte principal */
+      --muted:#6a557a;        /* texte secondaire */
+      --glass:rgba(255,255,255,.72);
+      --ring:rgba(156,77,204,.28);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #9c4dcc 0%, transparent 60%),
+        radial-gradient(900px 480px at 110% 10%, #c084fc 0%, transparent 60%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px 16px;
+    }
+
+    .ribbon{
+      position:fixed; inset:0 0 auto 0; height:8px;
+      background:linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+      background-size:200% 100%;
+      animation:slide 14s linear infinite;
+      box-shadow:0 2px 8px rgba(0,0,0,.25);
+    }
+    @keyframes slide{
+      0%{background-position:0% 50%}
+      100%{background-position:200% 50%}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .ribbon{animation:none}
+    }
+
+    .wrap{ width:100%; max-width:920px; }
+
+    .card{
+      background:var(--glass);
+      backdrop-filter:saturate(130%) blur(10px);
+      -webkit-backdrop-filter:saturate(130%) blur(10px);
+      border-radius:20px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.45);
+      border:1px solid rgba(255,255,255,.55);
+    }
+
+    header{
+      display:flex; align-items:center; gap:16px; margin-bottom:8px;
+    }
+    .logo{
+      width:52px; height:52px; border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, #7e22ce, #a855f7);
+      color:white; font-size:26px; font-weight:700;
+      box-shadow:0 6px 18px rgba(124,58,237,.35);
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .headings h1{ margin:0; font-size:24px; color:#2a163a; }
+    .headings p{ margin:2px 0 0; color:var(--muted); font-size:14px; }
+
+    .badges{ display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 6px; }
+    .badge{
+      border:1px solid var(--ring);
+      background:rgba(156,77,204,.08);
+      color:#4c1d95;
+      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:600; letter-spacing:.2px;
+    }
+
+    hr.sep{
+      border:0; height:1px;
+      background:linear-gradient(90deg, transparent, rgba(0,0,0,.12), transparent);
+      margin:18px 0 12px;
+    }
+
+    .message h2{
+      margin:0 0 12px; font-size:20px; color:#2a163a;
+      display:flex; align-items:center; gap:8px;
+    }
+    .message p{ margin:0; line-height:1.75; font-size:16px; color:#2a163a; }
+    .message p + p{ margin-top:14px }
+
+    .quote{
+      margin-top:18px;
+      padding:14px 16px;
+      border-left:4px solid var(--accent);
+      background:rgba(255,255,255,.65);
+      border-radius:12px;
+      font-size:15px;
+      color:#4c1d95;
+    }
+
+    .footer{
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      margin-top:24px; flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none; border:1px solid rgba(255,255,255,.6);
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#fff; text-decoration:none;
+      padding:10px 16px; border-radius:12px; font-weight:600;
+      box-shadow:0 6px 16px rgba(76,29,149,.35);
+      transition:transform .08s ease, box-shadow .2s ease, filter .2s ease;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn:hover{ transform:translateY(-1px); filter:saturate(108%); }
+    .btn:active{ transform:translateY(0); }
+    .meta{ color:var(--muted); font-size:13px; }
+
+    @media (max-width:640px){
+      .card{ padding:22px }
+      .message p{ font-size:15px }
+      .headings h1{ font-size:20px }
+    }
+    @media print{
+      body{ background:white; padding:0 }
+      .ribbon{ display:none }
+      .card{ box-shadow:none; border:1px solid #dec3f6; background:white }
+      .btn{ display:none }
+    }
