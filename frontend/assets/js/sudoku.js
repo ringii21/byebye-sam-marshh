@@ -114,7 +114,6 @@ function checkBoard() {
     messageDiv.style.color = "#c0392b";
   } else {
     messageDiv.innerHTML = `
-      <hr>
       🎉 Bravo Alain ! Tu as résolu le Sudoku comme un roi de la logique !<br><br>
       <p>
         Alain,<br/><br/>
