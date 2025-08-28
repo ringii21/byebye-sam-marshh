@@ -100,7 +100,7 @@ function spawnEnemies() {
       const x0 = randRange(b.minX, b.maxX - 28);
       enemies.push({
         type: "patrol",
-        x: x0, y: 340, width: 28, height: 28,
+        x: x0, y: 340, width: 15, height: 15,
         dx: speed, minX: b.minX, maxX: b.maxX,
         dead: false
       });
@@ -138,7 +138,7 @@ function spawnEnemies() {
   chaserSpots.forEach(xc => {
     enemies.push({
       type: "chaser",
-      x: xc, y: 340, width: 30, height: 30,
+      x: xc, y: 340, width: 15, height: 15,
       vx: 0, vy: 0, maxSpeed: TUNING.chaserSpeed, accel: 0.12,
       aggro: TUNING.chaserAggro, dead: false
     });
