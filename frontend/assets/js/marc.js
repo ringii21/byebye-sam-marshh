@@ -107,25 +107,23 @@ function spawnEnemies() {
     }
   });
 
-  // Patrouilleurs sur plateformes
   const eligible = platforms.filter(p => p.y <= 300 && p.width >= 140 && p.x > 900);
-  const take = 4; // fixe pour "normal"
+  const take = 4; 
   eligible.slice(0, take).forEach(p => {
     const minX = p.x, maxX = p.x + p.width - 28;
     enemies.push({
       type: "patrol",
-      x: randRange(minX, maxX), y: p.y - 28, width: 28, height: 28,
+      x: randRange(minX, maxX), y: p.y - 28, width: 15, height: 15,
       dx: randRange(TUNING.patrolSpeed[0], TUNING.patrolSpeed[1]) * choice([1, -1]),
       minX, maxX, dead: false
     });
   });
 
-  // Drones (bombes)
   const dronePool = [900, 1200, 1500, 1850, 2100, 2450, 2700];
   dronePool.slice(0, TUNING.droneCount).forEach(xc => {
     enemies.push({
       type: "drone",
-      x: xc, y: randRange(140, 210), width: 26, height: 26,
+      x: xc, y: randRange(140, 210), width: 15, height: 15,
       t: randRange(0, Math.PI*2),
       speed: randRange(TUNING.droneSpeed[0], TUNING.droneSpeed[1]),
       amp: randRange(TUNING.droneAmp[0], TUNING.droneAmp[1]),
@@ -133,7 +131,6 @@ function spawnEnemies() {
     });
   });
 
-  // Poursuiveurs (têtes de monstre)
   const chaserSpots = [1200, 1700, 2000, 2350].slice(0, TUNING.chasers);
   chaserSpots.forEach(xc => {
     enemies.push({
@@ -145,7 +142,6 @@ function spawnEnemies() {
   });
 }
 
-// ===== physique/collisions =====
 function aabbOverlap(a, b) {
   return a.x < b.x + b.width &&
          a.x + a.width > b.x &&
@@ -166,7 +162,6 @@ function restartGame() {
   spawnEnemies();
 }
 
-// ====== INTRO UI (overlay) ======
 (function createIntroUI() {
   const ui = document.createElement("div");
   ui.id = "intro-ui";
@@ -222,7 +217,7 @@ function restartGame() {
 
   document.getElementById("intro-start").addEventListener("click", startGame);
 
-  // Expose reposition if needed
+
   window.__positionIntro = positionIntroUI;
 })();
 
@@ -230,11 +225,10 @@ function startGame() {
   introVisible = false;
   const ui = document.getElementById("intro-ui");
   if (ui) ui.style.visibility = "hidden";
-  // (re)lancer proprement
+
   restartGame();
 }
 
-// ====== boucle ======
 function update() {
   if (introVisible || won || lost) return;
 
@@ -266,17 +260,17 @@ function update() {
     }
   }
 
-  // bordures monde
+
   if (player.y > canvas.height) { resetPlayer(); }
   if (player.x < 0) player.x = 0;
   if (player.x + player.width > worldWidth) player.x = worldWidth - player.width;
 
-  // caméra
+
   cameraX = player.x - canvas.width / 2;
   if (cameraX < 0) cameraX = 0;
   if (cameraX > worldWidth - canvas.width) cameraX = worldWidth - canvas.width;
 
-  // IA ennemis
+
   for (const e of enemies) {
     if (e.dead) continue;
 
@@ -315,7 +309,7 @@ function update() {
     }
   }
 
-  // collisions joueur <-> ennemis (stomp)
+
   for (const e of enemies) {
     if (e.dead) continue;
     if (!aabbOverlap(player, e)) continue;
@@ -343,7 +337,7 @@ function update() {
     player.y + player.height > goal.y
   ) {
     won = true;
-    messageDiv.innerHTML = `Gagné, mais tu me diras que c'était facile n'est-ce pas??
+    messageDiv.innerHTML = `Gagné!!!!!!!!! Maintenant plus qu'à faire des speed run de ce mini jeu, essaie de faire en moins de 10sec :p (je rigole, 10sec c'est trop simple pour toi)
     <p>Marc,<br/><br/> C'est peut-être avec toi que j'ai eu le moins d'occasions d'échanger longuement. Mais pourtant, ta bienveillance et ta sympathie transparaissaient à chaque fois que tu venais à mon aide. J'ai également adoré les moments ou tu sortais des phrases banger pendant les réunions! Des fois je ne savais pas si c'était des blagues mais ça restait très drôle haha
     <br>J'espère que tu as apprécié le petit jeu de plateforme! C'était une façon à moi de te dire merci pour ces un an et demi partagés dans la même aventure.<br/><br/> Merci pour tout, Marc !<br/><br/> Anaïs 🎮 </p>
     `;
@@ -355,17 +349,16 @@ function draw() {
   ctx.save();
   ctx.translate(-cameraX, 0);
 
-  // plateformes
+
   for (const p of platforms) {
     ctx.fillStyle = "#74b9ff";
     ctx.fillRect(p.x, p.y, p.width, p.height);
   }
 
-  // goal
+
   ctx.fillStyle = goal.color;
   ctx.fillRect(goal.x, goal.y, goal.width, goal.height);
 
-  // ennemis (émojis)
   ctx.textBaseline = "top";
   for (const e of enemies) {
     const emoji = EMOJI[e.type] || "⬛";
@@ -373,7 +366,7 @@ function draw() {
     ctx.fillText(emoji, e.x, e.y);
   }
 
-  // animation joueur
+
   if (player.dx !== 0) {
     frameTimer++;
     if (frameTimer >= frameSpeed) {
@@ -398,12 +391,11 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-// Init (niveau unique: normal) — on affiche l'intro, on spawn pour le décor
+
 spawnEnemies();
 loop();
 
-// bouton restart si présent
+
 document.getElementById("restartBtn")?.addEventListener("click", restartGame);
 
-// expose pour debug si besoin
 window.restartGame = restartGame;
